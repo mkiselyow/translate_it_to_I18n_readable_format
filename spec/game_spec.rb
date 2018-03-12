@@ -10,9 +10,9 @@ RSpec.describe FileTransformer do
               'types' => {
                 'cat' => 'Cat',
                 'dog' => 'Dog'
-              }
+              },
+              'title' => 'My lovely pets',
             },
-            'title' => 'My lovely pets',
             'actions' => {
               'add' => 'Add',
               'remove' => 'Remove'

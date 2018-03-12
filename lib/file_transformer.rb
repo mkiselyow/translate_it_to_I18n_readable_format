@@ -14,11 +14,12 @@ class FileTransformer
     end
     File.open('translations.yml', 'w+').write(answer.to_yaml)
     file.close
-    answer.to_yaml
+    new_arr =  answer.drop(1).map {|hash| recurse_merge(answer[0], hash) }
+    new_arr[0].to_yaml
   end
 
   def self.get_key_and_value_from_keys_array(keys_array, value, result)
-    keys_array.map do |key|
+    arr = keys_array.map do |key|
       if keys_array.length > 1
         keys_array.shift
         result[key] = {}
@@ -27,6 +28,12 @@ class FileTransformer
         { key => value}
       end
     end
+    arr[0]
   end
 
+  def self.recurse_merge(a,b)
+    a.merge!(b) do |_,x,y|
+      (x.is_a?(Hash) && y.is_a?(Hash)) ? recurse_merge(x,y) : [*x,*y]
+    end
+  end
 end
