@@ -12,9 +12,9 @@ class FileTransformer
       result = {}
       answer << get_key_and_value_from_keys_array(keys_array, value, result)
     end
-    File.open('translations.yml', 'w+').write(answer.to_yaml)
     file.close
     new_arr =  answer.drop(1).map {|hash| recurse_merge(answer[0], hash) }
+    File.open('translations.yml', 'w+').write(new_arr[0].to_yaml)
     new_arr[0].to_yaml
   end
 

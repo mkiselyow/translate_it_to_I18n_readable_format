@@ -1,20 +1,11 @@
 ---
-- en:
-    pets:
-      types:
-        cat: Cat
-- en:
-    pets:
-      types:
-        dog: Dog
-- en:
-    pets:
-      title: My lovely pets
-- en:
-    actions:
-      add: Add
-- en:
-    actions:
-      remove: Remove
-- en:
-    language: "<strong>Language</strong>"
+en:
+  pets:
+    types:
+      cat: Cat
+      dog: Dog
+    title: My lovely pets
+  actions:
+    add: Add
+    remove: Remove
+  language: "<strong>Language</strong>"
